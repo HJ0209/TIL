@@ -75,9 +75,21 @@ $ git log --oneline
 75ead10 수정
 ```
 
-그리고 다시 `push`한다.
+그리고 다시 `push`한다. (하나로 합쳐져서 git hub에 올라감)
 
 ```bash
 $ git push origin master
 ```
+
+
+
+* `pull`을 하는 과정에서 각각 이력이 동일한 파일을 수정했다면, 충돌이 발생한다.
+* 충돌이 발생하는 경우 직접 해당 파일을 열어서 수정하고, commit을 한다.
+
+```bash
+$ git add .
+$ git commit
+```
+
+* commit 메시지는 자동으로 입력이 되어 있고, 종료한 이후에 다시 `push`한다.
 
