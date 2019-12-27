@@ -31,6 +31,8 @@ Unpacking objects: 100% (3/3), done.
 
   (pull은 init의 반댓말이다)
 
+* git init / git clone 중 하나만 선택해서 실행
+
 
 
 
@@ -65,20 +67,14 @@ hint: See the 'Note about fast-forwards' in 'git push --help' for details.
 $ git pull origin master
 ```
 
-pull을 하게 되면,  commit 메시지를 작성할 수 있는 vim이 드게 된다.
+pull을 하게 되면,  오류가 난 파일에 이상한 글자가 나타난다.
 
-`esc`, `:wq`를 순서대로 입력하면 커밋 메시지를 저장할 수 있다. (병합)
+이를 정리해 올릴 내용으로 마무리한다.
 
 ```bash
 $ git log --oneline
 0a08b3e (HEAD -> master) 학원
 75ead10 수정
-```
-
-그리고 다시 `push`한다. (하나로 합쳐져서 git hub에 올라감)
-
-```bash
-$ git push origin master
 ```
 
 
@@ -91,5 +87,15 @@ $ git add .
 $ git commit
 ```
 
+* commit 메시지를 작성할 수 있는 vim이 뜨게 된다.
+
+  `esc`, `:wq`를 순서대로 입력하면 커밋 메시지를 저장할 수 있다. (병합)
+
 * commit 메시지는 자동으로 입력이 되어 있고, 종료한 이후에 다시 `push`한다.
+
+(하나로 합쳐져서 git hub에 올라감)
+
+```bash
+$ git push origin master
+```
 
