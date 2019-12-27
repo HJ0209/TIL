@@ -160,3 +160,44 @@ Date:   Fri Dec 27 14:19:08 2019 +0900
     markdown 활용법 추가
 ```
 
+
+
+
+
+## 원격 저장소(Remote Repository) 활용하기
+
+> 원격 저장소를 제공하는 서비스는 gitlab, github, bitbucket 등 다양하나 github을 기준으로 설명한다.
+
+
+
+### 1. 원격 저장소 설정하기
+
+```bash
+$ git remote add origin github_url
+```
+
+* 원격저장소 (`remote`)를 `origin`으로 `github_url`을 추가(`add`)한다.
+* 설정된 원격 저장소 목록을 확인하기 위해서는 `git remote -v` 명령어를 활용한다.
+
+```bash
+$ git remote -v
+origin  https://github.com/HJ0209/TIL.git (fetch)
+origin  https://github.com/HJ0209/TIL.git (push)
+```
+
+* 설정된 원격 저장소를 삭제하기 위해서는 `git remove rm origin` 명령어를 활용한다.
+
+```bash
+$ git remote rm origin
+```
+
+
+
+### 2. 원격 저장소로 업로드
+
+```bash
+$ git push origin master
+```
+
+* `origin`으로 설정된 url에 `master` 브랜치로 `push`한다.
+
