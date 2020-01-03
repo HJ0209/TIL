@@ -192,7 +192,7 @@ C:\Users\HPE\Work\docker\day01>docker container run hello-world:latest
 # docker run hello-world:latest로 서도 가능
 
 Unable to find image 'hello-world:latest' locally
-#이런 파일이 없으므로 인터넷에서 다운받아 실행하겠다
+#이런 파일이 없으므로 애차인터넷에서 다운받아 실행하겠다
 latest: Pulling from library/hello-world
 1b930d010525: Pull complete
 Digest: sha256:4fe721ccc2e8dc7362278a29dc660d833570ec2682f4e4194f4ee23e415e1064
@@ -495,7 +495,7 @@ docker stop $(docker container ls --filter "ancestor=example/echo" -q)
 
 ```sql
  docker build -t gihyodocker/concretetest:latest .
- # 이미지 빌드
+ # 이미지 빌드 # . 빼먹지 말도록 주의!
  
 Sending build context to Docker daemon  43.52kB
 Step 1/2 : FROM gihyodocker/basetest:latest
