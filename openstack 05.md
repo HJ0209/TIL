@@ -576,7 +576,7 @@ authorized_keys  id_rsa  id_rsa.pub  known_hosts
 # .keystonerc_demo 
 > 데모환경으로 전환
 
-[root@controller ~(keystone_admin)]# openstack keypair create --public-key ~/.ssh/id_rsa.pub mykey
+[root@controller ~(keystone_demo)]# openstack keypair create --public-key ~/.ssh/id_rsa.pub mykey
 +-------------+-------------------------------------------------+
 | Field       | Value                                           |
 +-------------+-------------------------------------------------+
@@ -586,7 +586,7 @@ authorized_keys  id_rsa  id_rsa.pub  known_hosts
 +-------------+-------------------------------------------------+
 > 마이키로 등록
 
-[root@controller ~(keystone_admin)]# openstack keypair show mykey
+[root@controller ~(keystone_demo)]# openstack keypair show mykey
 +-------------+-------------------------------------------------+
 | Field       | Value                                           |
 +-------------+-------------------------------------------------+
@@ -621,7 +621,7 @@ openstack server create --flavor m1.nano --image cirros --nic net-id=63a24a4b-39
 
 
 
-ctrl + 6 + ]
+
 
 ```
 openstack server create --flavor m1.nano --image cirros --nic net-id=f86403ab-adfe-4447-af09-ba92a164dcb5 --security-group default --key-name mykey selfservice-instance
@@ -630,72 +630,7 @@ openstack server create --flavor m1.nano --image cirros --nic net-id=f86403ab-ad
 ---
 
 ```sql
-[root@controller ~(keystone_admin)]# openstack flavor create --id 0 --vcpus 1 --ram 64 --disk 1 m1.nano
-+----------------------------+---------+
-| Field                      | Value   |
-+----------------------------+---------+
-| OS-FLV-DISABLED:disabled   | False   |
-| OS-FLV-EXT-DATA:ephemeral  | 0       |
-| disk                       | 1       |
-| id                         | 0       |
-| name                       | m1.nano |
-| os-flavor-access:is_public | True    |
-| properties                 |         |
-| ram                        | 64      |
-| rxtx_factor                | 1.0     |
-| swap                       |         |
-| vcpus                      | 1       |
-+----------------------------+---------+
-[root@controller ~(keystone_admin)]# openstack flavor list
-+----+-----------+-------+------+-----------+-------+-----------+
-| ID | Name      |   RAM | Disk | Ephemeral | VCPUs | Is Public |
-+----+-----------+-------+------+-----------+-------+-----------+
-| 0  | m1.nano   |    64 |    1 |         0 |     1 | True      |
-| 1  | m1.tiny   |   512 |    1 |         0 |     1 | True      |
-| 2  | m1.small  |  2048 |   20 |         0 |     1 | True      |
-| 3  | m1.medium |  4096 |   40 |         0 |     2 | True      |
-| 4  | m1.large  |  8192 |   80 |         0 |     4 | True      |
-| 5  | m1.xlarge | 16384 |  160 |         0 |     8 | True      |
-+----+-----------+-------+------+-----------+-------+-----------+
-[root@controller ~(keystone_admin)]# ls .ssh
-authorized_keys  id_rsa  id_rsa.pub  known_hosts
-[root@controller ~(keystone_admin)]# ls
-anaconda-ks.cfg                cirros-0.3.5-powerpc-disk.vmdk  openstack.old
-cirros-0.3.5-powerpc-disk.img  keystonerc_admin                openstack.txt
-[root@controller ~(keystone_admin)]# openstack keypair create --public-key ~/.ssh/id_rsa.pub mykey
-^H^H
 
-+-------------+-------------------------------------------------+
-| Field       | Value                                           |
-+-------------+-------------------------------------------------+
-| fingerprint | b9:1d:64:d1:c3:11:2e:d7:6d:73:47:69:40:2c:dd:6d |
-| name        | mykey                                           |
-| user_id     | cfd1ca710d9445579955e922aa883a11                |
-+-------------+-------------------------------------------------+
-[root@controller ~(keystone_admin)]# 
-[root@controller ~(keystone_admin)]# 
-[root@controller ~(keystone_admin)]# keypair show
--bash: keypair: command not found
-[root@controller ~(keystone_admin)]# openstack keypair show
-usage: openstack keypair show [-h] [-f {json,shell,table,value,yaml}]
-                              [-c COLUMN] [--max-width <integer>]
-                              [--fit-width] [--print-empty] [--noindent]
-                              [--prefix PREFIX] [--public-key]
-                              <key>
-openstack keypair show: error: too few arguments
-[root@controller ~(keystone_admin)]# openstack keypair show mykey
-+-------------+-------------------------------------------------+
-| Field       | Value                                           |
-+-------------+-------------------------------------------------+
-| created_at  | 2020-01-14T06:15:46.000000                      |
-| deleted     | False                                           |
-| deleted_at  | None                                            |
-| fingerprint | b9:1d:64:d1:c3:11:2e:d7:6d:73:47:69:40:2c:dd:6d |
-| id          | 1                                               |
-| name        | mykey                                           |
-| updated_at  | None                                            |
-| user_id     | cfd1ca710d9445579955e922aa883a11                |
-+-------------+-------------------------------------------------+
 [root@controller ~(keystone_admin)]# openstack security group rule create --proto icmp default
 More than one SecurityGroup exists with the name 'default'.
 [root@controller ~(keystone_admin)]# openstack security group rule create --proto tcp --dst-port 22 default
@@ -1592,7 +1527,9 @@ Could not find resource cirros
   127  history
 ```
 
+* 연결해제할 때에는 `ctrl + 6 + ]`
 
+  
 
 ![image-20200114170813697](images/image-20200114170813697.png)
 
